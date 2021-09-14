@@ -3,18 +3,17 @@
 # Required parameters:
 # @raycast.schemaVersion 1
 # @raycast.title My IP
-# @raycast.mode compact
+# @raycast.mode inline
+# @raycast.refreshTime 1d
 
 # Optional parameters:
-# @raycast.icon 🌎
+# @raycast.icon 💻
 # @raycast.packageName Developer Utils
 
 # Documentation:
-# @raycast.description My IP
+# @raycast.description my ip
 # @raycast.author Slavik Nychkalo
 # @raycast.authorURL https://github.com/gebeto
 
-
 response=$(curl --silent "https://api.myip.com" | jq -r '.ip')
-
-echo "$response"
+echo -e "\\033[32m$response"
