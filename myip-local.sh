@@ -2,7 +2,7 @@
 
 # Required parameters:
 # @raycast.schemaVersion 1
-# @raycast.title My IP
+# @raycast.title My IP local
 # @raycast.mode inline
 # @raycast.refreshTime 1d
 
@@ -15,5 +15,6 @@
 # @raycast.author Slavik Nychkalo
 # @raycast.authorURL https://github.com/gebeto
 
-response=$(curl --silent "https://api.myip.com" | jq -r '.ip')
-echo -e "\\033[32m$response"
+local_ip=$(ifconfig | grep 'inet.*broadcast' | awk '{print $2}')
+
+echo -e "\\033[32m$local_ip"
